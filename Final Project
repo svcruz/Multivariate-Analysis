@@ -1,0 +1,18 @@
+urlremote <- urlRemote <- "https://raw.githubusercontent.com"
+pathGithub <- pathGithub <- "/svcruz/Multivariate-Analysis/main/"
+filename <- "StressLevelDataset.csv"
+
+mydata <- read.csv(paste0(urlremote, pathGithub, filename))
+
+
+
+
+
+head(mydata)
+
+plot(mydata)
+
+mydata.s = scale(mydata)
+mds.cor = cor(mydata.s)
+pcadata = princomp(covmat = mds.cor)
+summary(pcadata, loadings = TRUE)
